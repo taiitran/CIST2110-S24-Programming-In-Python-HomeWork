@@ -1,5 +1,5 @@
 # HW4.py
-# Author:
+# Author: Tai Tran
 
 ### README
 # This file contains buggy functions that you need to fix.
@@ -27,11 +27,11 @@ def add(a: float, b: float) -> float:
     Returns:
         float: the sum of a and b
     """
-    return a - b
+    return a + b
 
 
 # Where is the bug in the buggy function?
-# A:
+# A: It was an addition sign instead of a subtraction sign
 
 
 def subtract(a: float, b: float) -> float:
@@ -44,11 +44,11 @@ def subtract(a: float, b: float) -> float:
     Returns:
         float: the difference of a and b
     """
-    return a + b
+    return a - b
 
 
 # Where is the bug in the buggy function?
-# A:
+# A: It was an addition sign instead of a subtraction sign
 
 
 def divide(a, b):
@@ -61,11 +61,12 @@ def divide(a, b):
     Returns:
         float: the quotient of a and b
     """
-    return a * b
+    return a / b
+print(divide(1,0))
 
 
 # Where is the bug in the buggy function?
-# A:
+# A: It was a multiplication sign instead of a division sign
 
 
 def multiply(a: float, b: float) -> float:
@@ -78,11 +79,11 @@ def multiply(a: float, b: float) -> float:
     Returns:
         float: the product of a and b
     """
-    return a / b
+    return a * b
 
 
 # Where is the bug in the buggy function?
-# A:
+# A: It was a division sign instead of a multiplication sign
 
 
 def greet(name: str) -> str:
@@ -94,11 +95,11 @@ def greet(name: str) -> str:
     Returns:
         _type_: the greeting message
     """
-    return "Heloo, " + name + "!"
+    return "Hello, " + name + "!"
 
 
 # Where is the bug in the buggy function?
-# A:
+# A: Hello was misspelled
 
 
 def square(num: int) -> int:
@@ -110,11 +111,11 @@ def square(num: int) -> int:
     Returns:
         int: the square of the number
     """
-    return num + num
+    return num * num
 
 
 # Where is the bug in the buggy function?
-# A:
+# A: It was an addition sign instead of a multiplication sign
 
 
 def is_even(num: int) -> bool:
@@ -126,11 +127,11 @@ def is_even(num: int) -> bool:
     Returns:
         bool: True if the number is even, False otherwise
     """
-    return num % 2 == 1
+    return num % 2 == 0
 
 
 # Where is the bug in the buggy function?
-# A:
+# A: It was checking if the number was odd instead of even, (It was 0 instead of 1)
 
 
 def grade_calculator(score: float) -> str:
@@ -146,7 +147,7 @@ def grade_calculator(score: float) -> str:
         return "A"
     elif 80 <= score < 90:
         return "B"
-    elif 70 <= score < 79:
+    elif 70 <= score <= 79:
         return "C"
     elif 60 <= score < 70:
         return "D"
@@ -157,7 +158,7 @@ def grade_calculator(score: float) -> str:
 
 
 # Where is the bug in the buggy function?
-# A:
+# A: It was repeating 60 instead of 59 and it was missing <= for 70 and 79.
 
 
 def speed_check(speed: float) -> str:
@@ -172,7 +173,7 @@ def speed_check(speed: float) -> str:
     # Assuming general speed limits: min: 20, max: 70 (in mph)
     if speed < 20:
         return "Too slow"
-    elif 20 <= speed <= 60:
+    elif 20 <= speed <= 70:
         return "Within limit"
     elif speed > 70:
         return "Over speed limit"
@@ -181,7 +182,7 @@ def speed_check(speed: float) -> str:
 
 
 # Where is the bug in the buggy function?
-# A:
+# A: It was 60 instead of 70
 
 
 def is_leap_year(year: int) -> bool:
@@ -193,23 +194,23 @@ def is_leap_year(year: int) -> bool:
     Returns:
         bool: True if the year is a leap year, False otherwise
     """
-    if year % 4 == 0:
+    if year % 400 == 0:
         return True
     elif year % 100 == 0:
         return False
-    elif year % 400 == 0:
+    elif year % 4 == 0:
         return True
     else:
         return False
+print(is_leap_year(2012))
 
-
-# Where is the bug in the buggy function?
-# A:
+    # Where is the bug in the buggy function?
+    # A: It was misarranged, the 400 and 100 should be switched.
 
 
 def main():
-    print("You are running me directly!")
+        print("You are running me directly!")
 
 
 if __name__ == "__main__":
-    main()
+        main()
