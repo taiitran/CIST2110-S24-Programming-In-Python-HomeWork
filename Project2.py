@@ -44,7 +44,7 @@ def import_csv(filename):
     try:
         with open(filename, 'r') as file:
             reader = csv.reader(file)
-            next(reader)  # Skip header row
+            next(reader)  
             for row in reader:
                 name = row[0]
                 phone = row[1]
@@ -86,11 +86,10 @@ def view_contacts(contacts):
     if not contacts:
         print("No contacts available.")
         return
-    print("{:<20} {:<15} {:<30} {:<10}".format("Name", "Phone", "Email", "Birthday"))
-    print("-" * 75)
-    sorted_contacts = sorted(contacts.items(), key=lambda x: x[0])
-    for name, details in sorted_contacts:
-        print("{:<20} {:<15} {:<30} {:<10}".format(name, details['Phone'], details['Email'], details['Birthday'].strftime('%m/%d/%Y')))
+    print("{:<20} {:<15} {:<30} {:<15}".format("Name", "Phone", "Email", "Birthday"))
+    print("{:<20} {:<15} {:<30} {:<15}".format("----", "-----", "-----", "--------"))
+    for key, value in contacts.items():
+        print("{:<20} {:<15} {:<30} {:<15}".format(key, value['Phone'], value['Email'], value['Birthday'].strftime('%m/%d/%Y')))
 
     
 
@@ -207,7 +206,7 @@ def main():
 
         elif choice == '0':
             save_csv(contacts)
-            print("Goodbye!")
+            print("Goodbye! Thank you for using the Contact List Program.")
             break
 
         else:
@@ -219,7 +218,7 @@ def main():
     # How many names start with the letter A?
     count = 0
     for name in contacts:
-        if name.startswith('A'):
+        if name[0].lower() == 'a':
             count += 1
     print(f"There are {count} names that start with the letter A.")
 
